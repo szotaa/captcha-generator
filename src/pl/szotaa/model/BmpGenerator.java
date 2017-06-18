@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  */
 public class BmpGenerator
 {
-    public static String buildOutput(String numOfDigits, String messValue)
+    public static String buildOutput(String numOfDigits, String messValue) //returns correct captcha code as String
     {
         String path = BmpGenerator.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         path = path.substring(0, path.lastIndexOf("/"));
@@ -18,11 +18,11 @@ public class BmpGenerator
         StringBuilder stringBuilder = new StringBuilder();
         try
         {
-            ProcessBuilder processBuilder = new ProcessBuilder(path, numOfDigits, messValue);
+            ProcessBuilder processBuilder = new ProcessBuilder(path, numOfDigits, messValue); // starts CaptchaGenerator.exe with numOfDigits and messValue command line variables
             processBuilder.redirectErrorStream();
             Process process = processBuilder.start();
             process.waitFor();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream())); //reads console output
             String temp;
             while((temp = bufferedReader.readLine()) != null)
                 stringBuilder.append(temp);

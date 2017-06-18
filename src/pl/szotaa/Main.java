@@ -12,7 +12,13 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by kubas on 10.06.2017.
+ * Created by Jakub Szota on 10.06.2017.
+ *
+ * @author Jakub Szota
+ * @version 1.0
+ *
+ *
+ *
  */
 public class Main extends Application
 {

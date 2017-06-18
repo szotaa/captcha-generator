@@ -32,7 +32,7 @@ public class CaptchaOverviewController
     @FXML
     private Label welcomeText;
 
-    private String response;
+    private String response; //console output from CaptchaGenerator.exe
 
     public CaptchaOverviewController(){}
 
@@ -94,7 +94,7 @@ public class CaptchaOverviewController
         File newFile = new File(newPath);
         if(newFile.exists())
         {
-            System.out.println("File already exist");
+            System.out.println("File already exist"); //TODO: code cleanup
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Save captcha");
             alert.setHeaderText("File already exist");
@@ -133,7 +133,7 @@ public class CaptchaOverviewController
     }
 
     @FXML
-    private void handleTry()
+    private void handleTry() //checks if user typed captcha correctly
     {
         if(!(response == null))
         {
