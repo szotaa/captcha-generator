@@ -2,7 +2,7 @@
 ## Simple JAVA / C captcha generator (CS course assigment)
 
 
-**Generates 0 - 10 digit long captchas with preset blur values stored as .bmp files.**
+**Generates 0 - 10 digit long captchas with preset blur values**
 
 **Java with javaFX (MVC design pattern) was used to create user inteface, C was used to create bmp generator**
 
