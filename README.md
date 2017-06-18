@@ -4,7 +4,7 @@ Simple JAVA / C captcha generator (CS course assigment)
 
 Generates 0 - 10 digit long captchas with preset blur values stored as .bmp files. 
 
-Java witch javaFX (MVC design pattern) was used to create user inteface, C was used to create bmp generator;
+Java with javaFX (MVC design pattern) was used to create user inteface, C was used to create bmp generator;
 
 In order to make this app working, compile and save files in the same directory as:
 
