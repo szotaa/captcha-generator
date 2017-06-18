@@ -8,7 +8,7 @@
 
 **In order to make this app working, compile and save files in the same directory as:**
 
--CaptchaGenerator.jar (Java folder)
+-CaptchaGenerator.jar (src folder)
 
 -CaptchaGenerator.exe (C folder)
 
