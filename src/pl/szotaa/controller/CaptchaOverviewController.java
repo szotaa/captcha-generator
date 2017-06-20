@@ -1,5 +1,6 @@
 package pl.szotaa.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -39,7 +40,21 @@ public class CaptchaOverviewController
     @FXML
     private void initialize()
     {
-        System.out.println("Successfully loaded fxml file");
+        String exepath = CaptchaOverviewController.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        exepath = exepath.substring(0, exepath.lastIndexOf("/"));
+        exepath.concat("/CaptchaGenerator.exe");
+        if((new File(exepath).exists()))
+        {
+            System.out.println("Exe not found, terminating CaptchaGenerator.jar");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fatal error");
+            alert.setHeaderText("CaptchaGenerator.exe is missing.");
+            alert.setContentText("Please put CaptchaGenerator.exe in the same directory as CaptchaGenerator.jar and restart the app");
+            alert.showAndWait();
+            Platform.exit();
+        }
+        else
+            System.out.println("Successfully loaded exe and fxml file");
     }
 
    @FXML
@@ -94,7 +109,7 @@ public class CaptchaOverviewController
         File newFile = new File(newPath);
         if(newFile.exists())
         {
-            System.out.println("File already exist"); //TODO: code cleanup
+            System.out.println("File already exist");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Save captcha");
             alert.setHeaderText("File already exist");
