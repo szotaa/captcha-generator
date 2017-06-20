@@ -42,8 +42,9 @@ public class CaptchaOverviewController
     {
         String exepath = CaptchaOverviewController.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         exepath = exepath.substring(0, exepath.lastIndexOf("/"));
-        exepath.concat("/CaptchaGenerator.exe");
-        if((new File(exepath).exists()))
+        exepath = exepath + "/CaptchaGenerator.exe";
+        System.out.println("Expecting exe under: " + exepath);
+        if(!(new File(exepath).exists()))
         {
             System.out.println("Exe not found, terminating CaptchaGenerator.jar");
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -51,7 +52,7 @@ public class CaptchaOverviewController
             alert.setHeaderText("CaptchaGenerator.exe is missing.");
             alert.setContentText("Please put CaptchaGenerator.exe in the same directory as CaptchaGenerator.jar and restart the app");
             alert.showAndWait();
-            Platform.exit();
+            System.exit(0);
         }
         else
             System.out.println("Successfully loaded exe and fxml file");
